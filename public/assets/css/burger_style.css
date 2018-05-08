@@ -1,0 +1,266 @@
+body {
+    margin : 0px;
+    background: #ECECEC;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.header {
+    margin:0px;
+    padding: 15px;
+    height: 50px;
+    text-align: center;
+    font-family: 'Kaushan Script', cursive;
+    background: #0A2239;
+    color: #FFA69E;
+}
+
+.header h1 {
+    margin: 0px;
+}
+
+.container {
+    margin: auto;
+    width: 90vw;
+}
+
+.burgers {
+    margin-top: 10px;
+}
+
+.left{
+    height: 84vh;   
+    float: left;
+    width: 30%;
+    overflow: scroll;
+    border: 2px solid #0A2239;
+    border-radius: 15px;
+}
+
+.left .clickToOrder {
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    font-size: 24px;
+    font-family: 'Kaushan Script', cursive;
+    background: #0A2239;
+    color: #FFA69E;
+    margin-bottom: 10px;
+}
+
+.orderAndEat{
+    width: 60vw;
+    height: 700px;
+    float: left;
+    margin-left: 30px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.right{
+    position: relative;
+    width: 0;
+    height: 304px;
+    background: #F4FAFF;
+    transition: 0.5s;
+}
+
+.extendRight{
+    width: 100%;
+}
+
+
+.left::-webkit-scrollbar {
+    width: 3px;
+}
+ 
+.left::-webkit-scrollbar-track {
+    box-shadow: transparent;
+}
+ 
+.left::-webkit-scrollbar-thumb {
+  background-color: #FF2847;
+  outline: 1px solid slategrey;
+}
+
+.burgerItem {
+    text-align: center;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #F4FAFF;
+    margin-bottom: 10px;
+}
+
+.burgerItem:hover {
+    cursor: pointer;
+}
+
+.burgerItem img, .right img {
+    width: 200px;
+}
+
+.right img {
+    display: inline-block;
+}
+
+.right .image {
+    float: left;
+    margin: 0px 15px;
+}
+
+.right .desc {
+    margin-top: 20px;
+    font-size: 22px;
+    padding-right: 10px;
+    font-family: 'Courgette', cursive;
+}
+
+.right i {
+    position: absolute;
+    font-size: 47px;
+    right: 10px;
+    bottom: 10px;
+    color: #388A8C;
+}
+
+.nameCal {
+    background: #0A2239;
+    font-size: 21px;
+    font-family: 'Kaushan Script', cursive;
+    padding: 0px 15px;
+    color: #FFA69E;
+    height: 70px;
+}
+
+.burgerName {
+    float: left;
+}
+
+.burgerCal {
+    float: right;
+}
+
+.burgerDetails{
+    width: 60%;
+    height: 30vh;
+    background: #F4FAFF;
+}
+
+.allOrders {
+    background: #F4FAFF;
+    height: 30px;
+    position: relative;
+    overflow: hidden;
+    transition: 0.5s;
+    border-radius: 15px;
+}
+
+.slideDown {
+    height: 381px;
+}
+
+.allOrders .slider {
+    height: 30px;
+    font-family: 'Kaushan Script', cursive;
+    background: #0A2239;
+    color: #FFA69E;
+    text-align: center;
+    font-size: 20px
+}
+
+.slider:hover {
+    cursor: pointer;
+}
+
+.allOrders .burgerOrdered{
+    position: absolute;
+    display: flex;
+    left: 10px;
+    top: 50px;
+    border: 1px solid #0A2239;
+    width: 300px;
+    height: 300px;
+    flex-wrap: wrap;
+}
+
+.allOrders .burgerOrdered img, .allOrders .devoured img{
+    width : 90px;
+    height: 90px;
+    margin: 5px;
+}
+
+.selected {
+    border-radius: 20px;
+    animation: glow 2s infinite;
+}
+
+@keyframes glow {
+    0%, 100% {
+        filter: drop-shadow(0px 0px 0px #577590);
+    }
+    50% {
+        filter: drop-shadow(0px 0px 7px #577590);
+    }
+}
+
+.allOrders .devoured{
+    position: absolute;
+    display: flex;
+    right: 10px;
+    top: 50px;
+    border: 1px solid #0A2239;
+    width: 300px;
+    height: 300px;
+    flex-wrap: wrap;
+}
+
+.allOrders button{
+    position: absolute;
+    width: 40px;
+    height: 300px;
+    top: 50px;
+    left: 420px;
+    font-size: 18px;
+    font-weight: bold;
+    background: #388A8C;
+}
+
+.notification {
+    position: absolute;
+    right: -300px;
+    bottom : 100px;
+    width: 300px;
+    height: 75px;
+    font-size: 26px;
+    background: #0A2239;
+    color : #FFA69E;
+    font-family: 'Courgette', cursive;
+}
+
+.notification p{
+    padding-left: 15px;
+}
+
+
+
+
+
+.slideInOut{
+    animation: slideIO 2s;
+}
+
+@keyframes slideIO {
+    0%, 100%{
+        right : -300px;
+    }
+    20% {
+        right: 0px;
+    }
+    80% {
+        right: 0px;
+    }
+}

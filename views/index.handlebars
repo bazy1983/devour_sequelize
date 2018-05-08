@@ -1,0 +1,47 @@
+<div class="left">
+    <div class="clickToOrder">
+        Click a Burger to Order
+    </div>
+    {{#each burgers}}
+    <div class="burgerItem" value="{{id}}">
+        <div class="nameCal">
+            <p class="burgerName">{{name}}</p>
+            <p class="burgerCal">{{cal}} Cal</p>
+            <div class="clearfix"></div>
+        </div>
+        <img src="{{image}}" alt="{{name}}">
+    </div>
+    {{/each}}
+</div>
+<div class="orderAndEat">
+    <div class="right">
+
+    </div>
+    <br>
+    <div class="allOrders">
+        <div class="slider">
+            <i class="fas fa-chevron-down"> </i> Click to see your table <i class="fas fa-chevron-down"> </i>
+        </div>
+        <div class="burgerOrdered">
+
+        </div>
+        <button>
+            <i class="fas fa-chevron-right"></i>
+            D
+            E
+            V
+            O
+            U
+            R
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="devoured">
+
+        </div>
+    </div>
+</div>
+
+
+<div class="notification">
+    <p>Your burger is ready</p>
+</div>

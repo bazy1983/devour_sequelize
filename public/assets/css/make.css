@@ -1,0 +1,31 @@
+.form label {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 24px;
+    width: 100px;
+}
+
+.form input {
+    width: 400px;
+    height: 35px;
+    font-size: 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding-left: 5px;
+}
+
+.form textarea {
+    width: 400px;
+    height: 250px;
+    font-size: 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: 2px inset;
+    padding-left: 5px;
+}
+
+.form button {
+    width: 200px;
+    font-family: 'Kaushan Script', cursive;
+    background: #388A8C;
+    font-size: 24px;
+}
