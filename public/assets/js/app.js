@@ -67,9 +67,11 @@ $(document).ready(function () {
             setTimeout(function(){
                 $(".notification").removeClass("slideInOut")
             },2500)
-            $(".slider").click();
         })
-    
+        setTimeout(() => {
+            
+            $(".slider").click();
+        }, 200);
 
     })
 
