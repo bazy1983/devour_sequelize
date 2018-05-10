@@ -65,6 +65,7 @@ module.exports = function (app) {
             })
             .catch(function(err){
                 console.log("create new order failed")
+                console.log(err)
                 res.send("404 NOT FOUND")
             })
 
