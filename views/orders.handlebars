@@ -1,0 +1,21 @@
+<h2>{{CustName}}</h2>
+
+
+<table>
+<tr>
+    <th>Burger</th>
+    <th>Name</th>
+    <th>Calories</th>
+    <th>Order date</th>
+</tr>
+
+{{#each orders}}
+<tr>
+    <td><img src="{{burger_img}}" alt="{{name}}"></td>
+    <td>{{name}}</td>
+    <td>{{cal}}</td>
+    <td>{{createdAt}}</td>
+</tr>
+    {{/each}}
+
+</table>

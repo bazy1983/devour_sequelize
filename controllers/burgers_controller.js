@@ -15,6 +15,10 @@ module.exports = function (app) {
                 }
                 res.render("index", alldata)
             })
+            .catch(function(err){
+                console.log("tried to redirect from address bar!!")
+                res.send("404 NOT FOUND")
+            })
     })
 
     app.get("/test", function (req, res) {
@@ -28,6 +32,10 @@ module.exports = function (app) {
         })
             .then(function (data) {
                 res.send(data.dataValues);
+            })
+            .catch(function(err){
+                console.log("tried to redirect from address bar!!")
+                res.send("404 NOT FOUND")
             })
     })
 
@@ -44,7 +52,8 @@ module.exports = function (app) {
             res.send(allData)
         })
         .catch(function(err){
-            console.log(err)
+            console.log("tried to redirect from address bar!!")
+            res.send("404 NOT FOUND")
         })
     })
 
@@ -52,6 +61,10 @@ module.exports = function (app) {
         db.devour_tbl.create(req.body)
             .then(function (data) {
                 res.send(req.body)
+            })
+            .catch(function(err){
+                console.log("tried to redirect from address bar!!")
+                res.send("404 NOT FOUND")
             })
 
     })
@@ -62,6 +75,10 @@ module.exports = function (app) {
             {where : {burger_id : req.body.burger_id}})
             .then(function () {
                 res.send(req.body)
+            })
+            .catch(function(err){
+                console.log("tried to redirect from address bar!!")
+                res.send("404 NOT FOUND")
             })
     })
 
@@ -80,7 +97,47 @@ module.exports = function (app) {
             
             res.status(200).end();
         })
+        .catch(function(err){
+            console.log("tried to redirect from address bar!!")
+            res.send("404 NOT FOUND")
+        })
     })
 
+    app.post("/user", function(req, res){
+        db.customer.create(req.body)
+        .then(function(data){
+            res.send(data)
+        })
+        .catch(function(err){
+            console.log("tried to redirect from address bar!!")
+            res.send("404 NOT FOUND")
+        })
+    })
+
+    app.get("/customer", function(req, res){
+        //console.log(req.query)
+        db.customer.findAll({
+            where : {id : req.query.id},
+            include :  [db.devour_tbl]
+        })
+        .then(function(data){
+           //building data from sequelize to be rendered
+            var custBurgArr = [];
+            for (let i = 0; i < data[0].devour_tbls.length; i++){
+                custBurgArr.push(data[0].devour_tbls[i].dataValues)
+            }
+            //console.log(custBurgArr)
+            var customerOrders = {
+                CustName : data[0].dataValues.name,
+                orders : custBurgArr
+            };
+            res.render("orders", customerOrders);
+        })
+        .catch(function(err){
+            console.log("tried to redirect from address bar!!")
+            res.send("404 NOT FOUND")
+        })
+        
+    })
 }
 

@@ -9,5 +9,10 @@ module.exports = function(sequelize, DataTypes) {
         freezeTableName : true,
         timestamps : false
     });
+    burger.associate = function(models){
+      burger.hasMany(models.devour_tbl, {
+        onDelete: "cascade"
+      });
+    }
     return burger;
   };

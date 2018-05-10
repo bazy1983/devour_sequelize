@@ -1,3 +1,77 @@
+.screen {
+    background: rgba(10, 34, 57, 0.288);
+    width : 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 5;
+}
+
+/* applied when adding new name */
+.hidden {
+    display: none;
+}
+
+.modal {
+    position: fixed;
+    top: 250px;
+    left: calc(50vw - 300px);
+    width: 576px;
+    height: 135px;
+    font-size: 24px;
+    background: #ECECEC;
+    border: 3px solid #0A2239;
+    border-radius: 15px;
+    font-family: 'Kaushan Script', cursive;
+    color: #FFA69E;
+    overflow: hidden;
+    animation: fadeInDown 1s;
+}
+
+@keyframes fadeInDown {
+    from {
+        top : 50px;
+        opacity: 0;
+    }
+    to {
+        top : 250;
+        opacity: 1;
+    }
+}
+
+.modal .modalHead {
+    background: #0A2239;
+    text-align: center;
+}
+
+.modal .modalHead p{
+    margin: 0px;
+    padding: 5px;
+}
+
+.modal .modalBody {
+    margin: 15px 15px;
+}
+
+.modal .modalBody input {
+    width: 300px;
+    height: 30px;
+}
+
+.modal .modalBody button {
+    width: 150px;
+    height: 38px;
+    font-family: 'Kaushan Script', cursive;
+    color: #FFA69E;
+    background: #0A2239;
+    border-radius: 10px;
+    font-size: 20px;
+    transform: translateY(2px);
+}
+
+.modal .modalFooter {
+    text-align: center;
+}
+
 body {
     margin : 0px;
     background: #ECECEC;
@@ -21,6 +95,16 @@ body {
 
 .header h1 {
     margin: 0px;
+}
+
+.header #customer {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+.header #customer:hover {
+    cursor: pointer;
 }
 
 .container {

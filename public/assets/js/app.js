@@ -1,5 +1,31 @@
 $(document).ready(function () {
-    var burgerInfo;
+    var burgerInfo; //get burger information when user clicks on
+    var userInfo; // get user information
+    $("#userReg").on("click", function(){
+        var newUser = $("#username").val().trim();
+
+        if (newUser != "" && !/\d/.test(newUser)){
+            // send name to database
+            $.post("/user", {name : newUser}, function(data){
+                $(".screen").addClass("hidden")
+                userInfo = data;
+                $("#customer").text(data.name)
+            })
+        } else {
+            //if empty string or has digits show invalid
+            $(this).text("Invalid");
+            setTimeout(function(){
+                $("#userReg").text("Register")
+            }, 1000)
+            
+        }
+    })
+    //click on customer name, send request for new page
+    $("#customer").on("click", function(){
+        $.get("/customer", {id : userInfo.id})
+    })
+
+
     // get and desplay burger info after choosing a bruger from menu on .right div 
     $(".burgerItem").on("click", function () {
         $(".right").empty();
@@ -32,15 +58,17 @@ $(document).ready(function () {
             burger_id : burgerInfo.id,
             burger_img : burgerInfo.image,
             name : burgerInfo.name,
-            cal : burgerInfo.cal
+            cal : burgerInfo.cal,
+            customerId : userInfo.id,
+            burgerListId : burgerInfo.id
         }
         $.post("/order", orderBurger, function(data){
             $(".notification").addClass("slideInOut")
             setTimeout(function(){
                 $(".notification").removeClass("slideInOut")
             },2500)
+            $(".slider").click();
         })
-        $(".slider").click();
     
 
     })

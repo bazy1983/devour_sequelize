@@ -12,5 +12,20 @@ module.exports = function(sequelize, DataTypes) {
     },{
         freezeTableName : true,
     });
+    devour.associate = function(models){
+      devour.belongsTo(models.customer,{
+        foreignKey : {
+          allowNull : false
+        }
+      });
+    }
+
+    devour.associate = function(models){
+      devour.belongsTo(models.burger_list, {
+        foreignKey : {
+          allowNull : false
+        }
+      });
+    }
     return devour;
   };
