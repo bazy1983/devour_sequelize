@@ -1,6 +1,6 @@
 $(document).ready(function () {
     var burgerInfo;
-    // display burger details on .right div
+    // get and desplay burger info after choosing a bruger from menu on .right div 
     $(".burgerItem").on("click", function () {
         $(".right").empty();
         var id = { id: $(this).attr("value") };
@@ -10,29 +10,29 @@ $(document).ready(function () {
             }
             var nameCal = $("<div class = 'nameCal'>");
             var clearFix = $("<div class = 'clearfix'>");
-            nameCal.append($("<p class = 'burgerName'>").text(data[0].name));
-            nameCal.append($("<p class = 'burgerCal'>").text(data[0].cal + " Caloies"));
+            nameCal.append($("<p class = 'burgerName'>").text(data.name));
+            nameCal.append($("<p class = 'burgerCal'>").text(data.cal + " Caloies"));
             var image = $("<div class = 'image'>")
-            image.append($("<img>").attr({ src: data[0].image, alt: data[0].name }));
+            image.append($("<img>").attr({ src: data.image, alt: data.name }));
             var description = $("<div class = 'desc'>")
-            description.append("<p>").text(data[0].description);
+            description.append("<p>").text(data.description);
             $(".right")
             .append(nameCal)
             .append($("<div class = 'clearFix'>"))
             .append("<br>")
             .append(image)
             .append(description)
-            .append($("<i class = 'fas fa-plus-circle'>").attr("value", data[0].id));
+            .append($("<i class = 'fas fa-plus-circle'>").attr("value", data.id));
             burgerInfo = data;
         })
     })
 
     $(".right").on("click", "i", function(){ //clicking on plus button
         let orderBurger = {
-            burger_id : burgerInfo[0].id,
-            burger_img : burgerInfo[0].image,
-            name : burgerInfo[0].name,
-            cal : burgerInfo[0].cal
+            burger_id : burgerInfo.id,
+            burger_img : burgerInfo.image,
+            name : burgerInfo.name,
+            cal : burgerInfo.cal
         }
         $.post("/order", orderBurger, function(data){
             $(".notification").addClass("slideInOut")
@@ -50,6 +50,9 @@ $(document).ready(function () {
         $.get("/devour", function(data){
             $(".devoured").empty();
             $(".burgerOrdered").empty();
+            //data coming back from server is array inside of array
+            //data = data[0] is attempt to extract array from inside array
+            data = data[0];
             for (let i = 0; i <data.length; i++){
                 if (data[i].devoured){
                     //right side

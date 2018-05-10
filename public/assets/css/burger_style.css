@@ -67,6 +67,7 @@ body {
     height: 304px;
     background: #F4FAFF;
     transition: 0.5s;
+    overflow: hidden;
 }
 
 .extendRight{
@@ -117,6 +118,7 @@ body {
     font-size: 22px;
     padding-right: 10px;
     font-family: 'Courgette', cursive;
+    width: 830px;
 }
 
 .right i {
