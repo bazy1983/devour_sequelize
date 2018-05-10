@@ -58,12 +58,13 @@ module.exports = function (app) {
     })
 
     app.post("/order", function (req, res) {
+        console.log("order made")
         db.devour_tbl.create(req.body)
             .then(function (data) {
                 res.send(req.body)
             })
             .catch(function(err){
-                console.log("tried to redirect from address bar!!")
+                console.log("create new order failed")
                 res.send("404 NOT FOUND")
             })
 

@@ -63,6 +63,7 @@ $(document).ready(function () {
             burgerListId : burgerInfo.id
         }
         $.post("/order", orderBurger, function(data){
+            console.log("ordered")
             $(".notification").addClass("slideInOut")
             setTimeout(function(){
                 $(".notification").removeClass("slideInOut")
