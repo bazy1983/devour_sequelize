@@ -16,7 +16,7 @@ module.exports = function (app) {
                 res.render("index", alldata)
             })
             .catch(function(err){
-                console.log("tried to redirect from address bar!!")
+                console.log("index is not found")
                 res.send("404 NOT FOUND")
             })
     })
@@ -34,7 +34,8 @@ module.exports = function (app) {
                 res.send(data.dataValues);
             })
             .catch(function(err){
-                console.log("tried to redirect from address bar!!")
+                console.log("get one burger failed")
+                console.log(err)
                 res.send("404 NOT FOUND")
             })
     })
@@ -52,7 +53,8 @@ module.exports = function (app) {
             res.send(allData)
         })
         .catch(function(err){
-            console.log("tried to redirect from address bar!!")
+            console.log("getting all orders failed")
+            console.log(err)
             res.send("404 NOT FOUND")
         })
     })
@@ -79,7 +81,8 @@ module.exports = function (app) {
                 res.send(req.body)
             })
             .catch(function(err){
-                console.log("tried to redirect from address bar!!")
+                console.log("updating order to devoured failed")
+                console.log(err)
                 res.send("404 NOT FOUND")
             })
     })
@@ -100,7 +103,8 @@ module.exports = function (app) {
             res.status(200).end();
         })
         .catch(function(err){
-            console.log("tried to redirect from address bar!!")
+            console.log("making new burger failed")
+            console.log(err)
             res.send("404 NOT FOUND")
         })
     })
@@ -111,7 +115,8 @@ module.exports = function (app) {
             res.send(data)
         })
         .catch(function(err){
-            console.log("tried to redirect from address bar!!")
+            console.log("registering new user failed");
+            console.log(err)
             res.send("404 NOT FOUND")
         })
     })
